@@ -67,7 +67,7 @@ public class Storage {
 
     }
 
-    public void getMap(){
+    public void getPrintedMap(){
         if (storageMap.isEmpty()) System.out.println("Хранилище пусто.");
         else{
             for (Map.Entry<String, Integer> pair : storageMap.entrySet()) //перебираем все ключ:значения мапы
@@ -108,7 +108,7 @@ public class Storage {
     public void deleteAllItems(){
         storageMap.clear();
     }
-    public Map<String, Integer> getPureMap(){
+    public Map<String, Integer> getMap(){
         return storageMap;
     }
 

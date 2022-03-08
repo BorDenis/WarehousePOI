@@ -17,11 +17,6 @@ public class Console {
                 Введите "помощь", что бы получить список команд.
                 Активно пустое хранилище.
                 Если хотите начать работу, с уже полузаполненым хранилищем, введите "образец" или "example".""");
-        storage = new Storage("command");
-        ExportToExcel excel = new ExportToExcel("",storage.getPureMap());
-
-
-
 
         while (exitFlag == 0) {
             System.out.print("Жду указаний: ");
@@ -72,7 +67,6 @@ public class Console {
                     value = sc.nextInt();
                     sc.nextLine(); //отчистка символа перевода строки
                     storage.addNewItem(key, value);
-
                     break;
                 case "найти", "find": //вывод позиции и его количество
                     System.out.print("Введите название позиции: ");
@@ -86,12 +80,12 @@ public class Console {
                     System.out.printf("Хранилище заполнено на: %d/%d \n", storage.getCount(), storage.getStoreSize());
                     break;
                 case "список", "list": //отобразить все позиции хранилища
-                    storage.getMap();
+                    storage.getPrintedMap();
                     break;
                 case "импорт", "import": //выгрузка в Excel
                     System.out.print("Задайте имя файла:");
                     name = sc.nextLine();
-//                    ExportToExcel excel = new ExportToExcel(name,storage.getPureMap());
+                    new ExportToExcel(name, storage.getMap());
                     System.out.println("Таблица создана!");
                     break;
                 case "выход", "exit": //выход из консоли
